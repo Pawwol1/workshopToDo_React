@@ -10,23 +10,13 @@ function Task({title, description, id, status: _status, onRemoveTask}) {
   const [operationForm, setOperationForm] = useState(false);
 
   useEffect(() => {
-    /**
-     * After component mount fetch all operation in this task
-     * @function getOperations - API function
-     */
     getOperations(id, setOperations);
   }, []);
 
-  /**
-   * Show/Hide add new operation form
-   */
   const toggleOperationForm = () => {
     setOperationForm(prevState => !prevState);
   };
 
-  /**
-   * Update task and set status to "finish"
-   */
   const handleFinish = () => {
     const task = {
       title,
@@ -34,26 +24,13 @@ function Task({title, description, id, status: _status, onRemoveTask}) {
       status: "closed"
     };
 
-    /**
-     * @function updateTask - API function
-     */
     updateTask(id, task, () => {
       setStatus("closed");
     });
   };
 
-  /**
-   * Remove single task from DB and local state
-   */
   const handleRemove = () => {
-    /**
-     * @function removeTask - API function
-     */
     removeTask(id, () => {
-      /**
-       * @function onRemoveTask - Function from parent component passed by props
-       * Function is updating local state
-       */
       onRemoveTask(id);
     });
   };

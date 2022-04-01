@@ -1,9 +1,5 @@
 import {API_KEY, API_URL} from "./constants";
 
-/**
- * Fetch all tasks
- * @param {function} successCallback - Function that saves incoming data
- */
 export const getTasks = successCallback => {
   fetch(`${API_URL}/tasks`, {
     headers: {
@@ -19,15 +15,6 @@ export const getTasks = successCallback => {
     .catch(err => console.log(err));
 };
 
-
-/**
- * Save task (create or update)
- * @param {Object} task - Complete object with task details
- * @param {string} task.title - Task title
- * @param {string} task.description - Task description
- * @param {string} task.status - Task status (open/closed)
- * @param {function} successCallback - Function that saves incoming data
- */
 export const createTask = (task, successCallback) => {
   fetch(`${API_URL}/tasks`, {
     headers: {
@@ -46,16 +33,6 @@ export const createTask = (task, successCallback) => {
     .catch(err => console.log(err));
 };
 
-
-/**
- * Update task
- * @param {string} id - ID of task
- * @param {Object} task - Complete object with task details
- * @param {string} task.title - Task title
- * @param {string} task.description - Task description
- * @param {string} task.status - Task status (open/closed)
- * @param {function} successCallback - Function that saves incoming data
- */
 export const updateTask = (id, task, successCallback) => {
   fetch(`${API_URL}/tasks/${id}`, {
     headers: {
@@ -74,12 +51,6 @@ export const updateTask = (id, task, successCallback) => {
     .catch(err => console.log(err));
 };
 
-
-/**
- * Remove task
- * @param {string} id - ID of task
- * @param {function} successCallback - Function runs in success case
- */
 export const removeTask = (id, successCallback) => {
   fetch(`${API_URL}/tasks/${id}`, {
     headers: {

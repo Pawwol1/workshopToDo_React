@@ -7,10 +7,6 @@ function Operation({description, id, onRemoveOperation, timeSpent: _timeSpent, s
   const [timeSpent, setTimeSpent] = useState(_timeSpent);
   const [timeSpentInput, setTimeSpentInput] = useState("");
 
-  /**
-   * Update operation and save new time
-   * @param {Object} e - Event object
-   */
   const handleTimeSave = e => {
     e.preventDefault();
 
@@ -24,9 +20,6 @@ function Operation({description, id, onRemoveOperation, timeSpent: _timeSpent, s
       timeSpent: parseInt(timeSpent) + parseInt(timeSpentInput)
     };
 
-    /**
-     * @function updateOperation - API function
-     */
     updateOperation(id, operation, data => {
       // Update local time spent state
       setTimeSpent(data.timeSpent);
@@ -37,18 +30,8 @@ function Operation({description, id, onRemoveOperation, timeSpent: _timeSpent, s
     });
   };
 
-  /**
-   * Remove single operation from DB and local state
-   */
   const handleRemove = () => {
-    /**
-     * @function removeOperation - API function
-     */
     removeOperation(id, () => {
-      /**
-       * @function onRemoveOperation - Function from parent component passed by props
-       * Function is updating local state
-       */
       onRemoveOperation(id);
     });
   };

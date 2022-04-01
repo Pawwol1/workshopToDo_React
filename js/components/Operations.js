@@ -6,10 +6,6 @@ import Button from "./Button";
 function Operations({taskID, form, setForm, operations, setOperations, status}) {
   const [operationDescription, setOperationDescription] = useState("");
 
-  /**
-   * Create new operation in this task
-   * @param {Object} e - Event object
-   */
   const handleNewOperation = e => {
     e.preventDefault();
 
@@ -18,14 +14,7 @@ function Operations({taskID, form, setForm, operations, setOperations, status}) 
       timeSpent: 0
     };
 
-    /**
-     * @function createOperation - API function
-     */
     createOperation(taskID, operation, data => {
-
-      /**
-       * @function setOperations - update local state
-       */
       setOperations(prevState => {
         return [
           data,
@@ -41,10 +30,6 @@ function Operations({taskID, form, setForm, operations, setOperations, status}) 
     });
   };
 
-  /**
-   * Remove operation from local state
-   * @param {string} id - ID of operation to remove
-   */
   const handleRemoveOperation = id => {
     setOperations(prevState => prevState.filter(operation => operation.id !== id));
   };

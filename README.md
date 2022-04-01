@@ -1,4 +1,5 @@
-Warsztat React.js polegający na stworzeniu aplikacji typu ToDo.
+Warsztat React.js polegający na stworzeniu aplikacji typu ToDo,
+projekt z kursu Coders Lab.
 
 Wykorzystane narzędzia i technologie: React, Sass, Babel, Webpack
 

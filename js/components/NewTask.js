@@ -6,10 +6,6 @@ function NewTask({onNewTask}) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  /**
-   * Create new task
-   * @param {Object} e - Event object
-   */
   const handleAddTask = e => {
     e.preventDefault();
 
@@ -19,9 +15,6 @@ function NewTask({onNewTask}) {
       status: "open"
     };
 
-    /**
-     * @function createTask - API function
-     */
     createTask(task, onNewTask);
   };
 
